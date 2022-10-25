@@ -77,14 +77,14 @@ Figure 3 shows the CNN architecture with sentence sentiment polarity classificat
 
  <p align="center">
  
-| Layer                           | Layer Name                                   | Kernel Size          | Output Size                                      |
-| :-----------------------------: | :------------------------------------------: | :------------------: | :----------------------------------------------: |
-| Input layer                     | Input                                        | $-$                  | $16×300×500$                                     |
-  | Convolutional layer ( 3 times ) | Conv1D<br>ReLU <br>MaxPool1 <br>DFlatten    | $2×2$<br>-<br>-<br>- | $64×300×500$<br>$64×300×500$<br>$64×300×1$<br>$64×300$ |
-|                                 | Conv1D <br>ReLU <br>MaxPool1 <br>DFlatten    | $3×3$<br>-<br>-<br>- | $64×300×500$<br>$64×300×500$<br>$64×300×1$<br>$64×300$ |
-|                                 | Conv1D <br/>ReLU <br/>MaxPool1 <br/>DFlatten | $4×4$<br>-<br>-<br>- | $64×300×500$<br>$64×300×500$<br>$64×300×1$<br>$64×300$ |
-| Fully Connected Layer           | Fully Connected <br>dropout <br>Softmax      | -<br>-<br>-        | $64×900$<br>$64×900$<br>$64×2$                       |
-| Output layer                    | Output                                       | -                 | $1$                                              |
+| Layer                           | Layer Name                                   | Kernel Size        | Output Size                                                                  |
+| :-----------------------------: | :------------------------------------------: | :----------------: | :-------------------------------------------------------------------------: |
+| Input layer                     | Input                                        | -                  | 16×300×500                                                                  |
+| Convolutional layer ( 3 times ) | Conv1D<br>ReLU <br>MaxPool1 <br>DFlatten     | 2×2<br>-<br>-<br>- | 64×300×500<br>64×300×500<br>64×300×1<br>64×300 |
+|                                 | Conv1D <br>ReLU <br>MaxPool1 <br>DFlatten    | 3×3<br>-<br>-<br>- | 64×300×500<br>64×300×500<br>64×300×1<br>64×300 |
+|                                 | Conv1D <br/>ReLU <br/>MaxPool1 <br/>DFlatten | 4×4<br>-<br>-<br>- | 64×300×500<br>64×300×500<br>64×300×1<br>64×300 |
+| Fully Connected Layer           | Fully Connected <br>dropout <br>Softmax      | -<br>-<br>-        | 64×900<br>64×900<br>64×2                                                    |
+| Output layer                    | Output                                       | -                  | 1                                                                            |
 
  </p>
 <h4 align="center">Table 1: Convolutional Neural Network Model Structure<h4>
