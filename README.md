@@ -1,5 +1,7 @@
 # NLP-Chinese-Word-Segmentation
- Using rule method, probability statistics method and neural network method to realize emotional polarity judgment of Chinese sentences   采用规则方法、概率统计方法、神经网络方法实现汉语句子的情感极性判断
+ Using rule method, probability statistics method and neural network method to realize emotional polarity judgment of Chinese sentences  
+ 
+ 采用规则方法、概率统计方法、神经网络方法实现汉语句子的情感极性判断
 
 <br>
 
@@ -44,13 +46,18 @@ The reason why the convolutional neural network can train such a high-performanc
 Bayesian network classifiers are probabilistic classifiers based on Bayes' theorem, which are commonly used in many supervised classification models, mainly considering the naive independence assumption. The advantage of Naive Bayes is that it can accurately classify the test set even when there is only a small training set, so Naive Bayes is often used in text classification, in which the algorithm is characterized by word frequency to classify texts . 
 
 Naive Bayes is a conditional probability model. Although its principle is simple and hypothetical, Bayesian classifiers have so far been proven to be effective in many cases. The basic idea of Naive Bayes in text sentiment polarity classification is to calculate the category probability of a given text, and the joint probability of the text and category is used in the calculation process, and it is based on the assumption of word independence. For a given data vector x and category C, there is the following formula:
+ 
 $$
 P(C|x)=\dfrac{P(x|C)P(C)}{P(x)}
 $$
+ 
 Given a data vector $x=\{x_{1},x_{2},\cdots ,x_{i}\}$ , assuming that all elements of x are independently distributed in a given class, the probability of x can be estimated by the following formula: 
+ 
 $$
 P(C|x)=P(C) \cdot \prod P(x_{i}|C)
 $$
+ 
+ <br>
 
 <p align="center"><img src="README/image-20221025155533337.png"></p>
 
@@ -65,16 +72,21 @@ Figure 3 shows the CNN architecture with sentence sentiment polarity classificat
 <p align="center"><img src="README/image-20221025155847597.png"></p>
 
 <h4 align="center">Fig. 3: CNN structure based on text sentiment polarity classification<h4>
+ 
+ <br>
 
+ <p align="center">
+ 
 | Layer                           | Layer Name                                   | Kernel Size          | Output Size                                      |
-| ------------------------------- | -------------------------------------------- | -------------------- | ------------------------------------------------ |
+| :-----------------------------: | :------------------------------------------: | :------------------: | :----------------------------------------------: |
 | Input layer                     | Input                                        | $-$                  | $16×300×500$                                     |
-| Convolutional layer ( 3 times ) | Conv1D <br>ReLU <br>MaxPool1 <br>DFlatten    | $2×2 \\ - \\ - \\ -$ | $64×300×500 \\ 64×300×500 \\ 64×300×1 \\ 64×300$ |
-|                                 | Conv1D <br>ReLU <br>MaxPool1 <br>DFlatten    | $3×3 \\ - \\ - \\ -$ | $64×300×500 \\ 64×300×500 \\ 64×300×1 \\ 64×300$ |
-|                                 | Conv1D <br/>ReLU <br/>MaxPool1 <br/>DFlatten | $4×4 \\ - \\ - \\ -$ | $64×300×500 \\ 64×300×500 \\ 64×300×1 \\ 64×300$ |
-| Fully Connected Layer           | Fully Connected <br>dropout <br>Softmax      | $- \\ - \\ -$        | $64×900 \\ 64×900 \\ 64×2$                       |
-| Output layer                    | Output                                       | $-$                  | $1$                                              |
+  | Convolutional layer ( 3 times ) | Conv1D<br>ReLU <br>MaxPool1 <br>DFlatten    | $2×2$<br>-<br>-<br>- | $64×300×500$<br>$64×300×500$<br>$64×300×1$<br>$64×300$ |
+|                                 | Conv1D <br>ReLU <br>MaxPool1 <br>DFlatten    | $3×3$<br>-<br>-<br>- | $64×300×500$<br>$64×300×500$<br>$64×300×1$<br>$64×300$ |
+|                                 | Conv1D <br/>ReLU <br/>MaxPool1 <br/>DFlatten | $4×4$<br>-<br>-<br>- | $64×300×500$<br>$64×300×500$<br>$64×300×1$<br>$64×300$ |
+| Fully Connected Layer           | Fully Connected <br>dropout <br>Softmax      | -<br>-<br>-        | $64×900$<br>$64×900$<br>$64×2$                       |
+| Output layer                    | Output                                       | -                 | $1$                                              |
 
+ </p>
 <h4 align="center">Table 1: Convolutional Neural Network Model Structure<h4>
 
 <br>
@@ -90,12 +102,15 @@ Figure 3 shows the CNN architecture with sentence sentiment polarity classificat
 Logistic regression is a machine learning algorithm that uses a logistic function to model variables that depend on categories and predict their probabilities. The algorithm is essentially dichotomous, that is, logistic regression can only divide data samples into two categories. Logistic regression is easy to implement and performs well on linearly classifiable classes. 
 
 First, the data sample is defined as the algorithm definition, and a set of weight vectors W are defined for the model. In the process of model learning, the weight vector is continuously optimized and updated to improve the accuracy of the model's prediction data. Among them, the process of continuously adjusting the value of the weight vector $W$ is called learning. Take the dot product of weights and features $W \cdot X$ for all input samples as the net input, and convert the net input into a real number within [0, 1] through the Sigmoid function . This real number can also be expressed as the probability that the sample belongs to the positive category. The sigmoid function $(3)$ converts large net input values to values close to 1 and small net input values to values close to 0.
+ 
 $$
 \sigma (x)=\dfrac{1}{1+e^{-x}}
 $$
+ 
 The predicted values are mapped to probabilities using the sigmoid function for all training samples, which are used to compare the actual and predicted labels and calculate the error and loss. The loss function is used to measure the degree to which the model misestimates the predicted and actual labels. For logistic regression, the loss function $(4)$ is given by the formula, where $h(x)$ is the estimated label ( $y_{predict}$ ). 
 
 Logistic regression uses gradient descent to compute the minimum of a function with the goal of minimizing loss and error. To find the minimum value of a function, calculate the gradient of the function at a certain point and move it in a direction that reduces the function. The learning rate is a hyperparameter of the model, which is the iterative step size in the gradient descent algorithm. If the learning rate is too small, the model may fall into a local minimum, and if the learning rate is too large, the model may skip the global minimum. small value. Therefore, in the process of training the model, the learning rate needs to be adjusted for the data set so that the model can achieve optimal performance.
+ 
 $$
 cost(h(x),y_{actual})=
 \begin{cases}
@@ -104,6 +119,8 @@ cost(h(x),y_{actual})=
 \end{cases}
 $$
 
+ <br>
+ 
 <p align="center"><img src="README/image-20221025163835125.png"></p>
 
 <h4 align="center">Fig. 5: Algorithm Flowchart of text sentiment polarity classification based on logistic regression<h4>
