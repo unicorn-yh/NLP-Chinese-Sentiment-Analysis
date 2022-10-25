@@ -41,7 +41,7 @@ The reason why the convolutional neural network can train such a high-performanc
 
 ## Algorithm Explanation
 
-<h3 style="color:grey;">Naive Bayes Classifier</h3>
+<h3 style="color:grey">Naive Bayes Classifier</h3>
 
 Bayesian network classifiers are probabilistic classifiers based on Bayes' theorem, which are commonly used in many supervised classification models, mainly considering the naive independence assumption. The advantage of Naive Bayes is that it can accurately classify the test set even when there is only a small training set, so Naive Bayes is often used in text classification, in which the algorithm is characterized by word frequency to classify texts . 
 
@@ -140,7 +140,7 @@ Experimental parameters :  500 positive and negative emotional sentences each, w
 ## Result
 
 | Naive Bayes             | ![image-20221025164259946](README/image-20221025164259946.png) |
-| ----------------------- | ------------------------------------------------------------ |
+| :---------------------: | ------------------------------------------------------------ |
 |                         | ![image-20221025164306220](README/image-20221025164306220.png) |
 |                         | ![image-20221025164315419](README/image-20221025164315419.png) |
 |                         | ![image-20221025164349812](README/image-20221025164349812.png) |
