@@ -129,11 +129,11 @@ $$
 
 ## Environmental Setup
 
-Experimental environment :  Visual Studio Code 1.67.1 + Python 3.6.8
+**Experimental environment :**  Visual Studio Code 1.67.1 + Python 3.6.8
 
-Experimental data :  sentiment dictionary, sentiment annotation prediction and dataset provided
+**Experimental data :**  sentiment dictionary, sentiment annotation prediction and dataset provided
 
-Experimental parameters :  500 positive and negative emotional sentences each, with a total data volume of 1000
+**Experimental parameters :**  500 positive and negative emotional sentences each, with a total data volume of 1000
 
 <br>
 
